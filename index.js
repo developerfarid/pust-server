@@ -35,7 +35,7 @@ async function run() {
 
     app.put("/users/:id", async (req, res) => {
       const id = req.params.id
-      const bd = req.body.add
+      const bd = req.body.addm
       const fillter = { _id: ObjectId(id) }
       const options = { upsert: true };
       const updateSet = {$set:{add:bd}}
