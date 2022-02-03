@@ -34,11 +34,13 @@ async function run() {
     })
 
     app.put("/users/:id", async (req, res) => {
+      console.log("okkkk");
       const id = req.params.id
-      const bd = req.body.addm
+      console.log(req.body, req.params.id);
+      // const bd = req.body.add
       const fillter = { _id: ObjectId(id) }
       const options = { upsert: true };
-      const updateSet = {$set:{add:bd}}
+      const updateSet = {$set:{add:req.body.add}}
       const result = await usersCollection.updateOne(fillter, updateSet, options)
       res.json(result)
     })
